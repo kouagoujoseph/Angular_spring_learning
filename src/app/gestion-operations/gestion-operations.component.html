@@ -1,0 +1,29 @@
+
+
+    <div class="col-6 offset-2 mt-md-5 pt-md-5">
+        <a routerLink="/addOp" class="btn btn-primary float-lef">Créer une Opération sur un compte bancaire</a>
+
+        <br><br>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>Id Op</th>
+                    <th>DateOp</th>
+                    <th>MontantOp</th>
+                    <th>TypeOp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let operation of dataOp">
+                    <td>{{ operation.id }}</td>
+                    <td>{{ operation.dateOp }}</td>
+                    <td>{{ operation.amount }}</td>
+                    <td>{{ operation.type }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+  
+
+<br><br><br><br><br><br><br><br>

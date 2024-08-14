@@ -1,0 +1,37 @@
+<br><br><br><br><br>
+<div class="container">
+  <h3 class="text-center">Allouer des tâches à un employé</h3>
+  <br><br>
+  <div >
+    <div class="card-body">
+      <form [formGroup]="addTaskEmployeeForm" (ngSubmit)="addTaskEmployee()">
+        <div class="row">
+          <div class="form-group col-4 mt-md-4">
+            <label for="employes_id" class="mx-3">Employés</label>
+            <select class="input-control"  id="" formControlName="employee_id">
+              <option  >Choisir un employé</option>
+              <option  *ngFor="let employee of data" [value]="employee.id">
+                {{ employee.name }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group col-4">
+            <label for="task_id" class="mx-3">Tâches</label>
+            <select class="input-control"  id="" formControlName="tasks_id">
+              <option >Choisir une tâche</option>
+              <option  *ngFor="let tasks of dataTasks" [value]="tasks.id">
+                {{ tasks.description}}
+              </option>
+            </select>
+          </div>
+           <div class="col-2 offset-md-2 mt-md-3">
+            <button type="submit" class="btn btn-primary">ajouter</button>
+           </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br>

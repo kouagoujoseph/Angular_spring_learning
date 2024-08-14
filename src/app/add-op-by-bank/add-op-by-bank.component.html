@@ -1,0 +1,46 @@
+
+
+<br><br> <br><br><br><br>
+<div class="card col-6 offset-md-3">
+    <div class="card-header">
+       <h4 class="text-center">Créer une Opération pour le compte Bancaire {{ bankId }} </h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="opForm" (ngSubmit)="addOperation()">
+        <div class="form-group">
+            <label for="bankid">N° Compte </label>
+            <!-- <select class="input-control"  id="bankid" formControlName="bankid">
+                <option  *ngFor="let bank of dataBank" [value]="bank.id">
+                  {{ bank.id}}
+                </option>
+            </select>    -->
+          <input type="text" class="ms-2" id="bankid" value="{{ bankId }}" formControlName="bankid" readonly>
+
+        </div> 
+        <br>
+        <div class="form-group">
+          <label for="dateOp">Date Operation</label>
+          <input type="date" class="form-control" id="dateOp" formControlName="dateOp">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="amount">Montant</label>
+          <input type="number" class="form-control" id="amount" formControlName="amount">
+        </div>
+        <br>
+        <div class="offset-8 form-group">
+            <label for="type">type Operation</label>
+            <select class="input-control"  id="type" formControlName="type">
+                <option  [value]="0"> CREDIT</option>
+                <option  [value]="1"> DEBIT</option>
+            </select> 
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary mx-1">Créer</button>
+        <a routerLink="/gestionBankAccount" type="button" class="btn btn-secondary mx-1">Retour</a>
+      </form>
+    </div>
+  </div>
+  <br><br><br><br>
+

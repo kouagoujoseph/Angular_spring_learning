@@ -1,0 +1,22 @@
+<br><br><br><br><br>
+<h4 class="offset-md-2">GESTION DES TACHES</h4> <br><br>
+<a routerLink="/addTache" class="btn btn-primary offset-md-2">Ajout une tâche</a>
+  <div class="col-8 offset-md-2">
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tasks of dataTasks">
+          <td>{{ tasks.description }}</td>
+          <td>
+            <button class="btn btn-secondary btn-sm mx-2">Details</button>
+            <button class="btn btn-success btn-sm mx-2" >Modifier</button>
+            <button class="btn btn-danger btn-sm mx-2" (click)="deleteTache(tasks.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

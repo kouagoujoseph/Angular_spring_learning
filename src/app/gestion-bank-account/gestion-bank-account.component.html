@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="col-6 offset-1 mt-md-5 pt-md-5">
+        <a routerLink="/addBank" class="btn btn-primary float-lef">Créer un compte bancaire à un client</a>
+        <br><br>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>N°Bank</th>
+                    <th>Sold</th>
+                    <th>Currency</th>
+                    <th>Status</th>
+                    <th>Opérations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bank of dataBankAccount">
+
+                    <td>{{ bank.id }}</td>
+                    <td>{{ bank.balance }}</td>
+                    <td>{{ bank.currency }}</td>
+                    <td>{{ bank.status }}</td>
+                    <td>
+                        <!-- <button class="btn btn-secondary btn-sm mx-2">consulter</button> -->
+                        <button (click)="ConsulterOp(bank.id,bank.balance)" class="btn btn-success btn-sm mx-2">consulter</button>
+                        <button (click)="DownloadRIB(bank.id)" class="btn btn-dark btn-sm mx-2">Download RIB</button>
+
+                        <!-- <button class="btn btn-danger btn-sm mx-2" (click)="confirmDelete(employee)">Supprimer</button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+    <div class="col-5 mt-md-5 pt-md-5" *ngIf="showOperations">
+        <a (click)="download(bankAccountIdPut)" class="btn btn-primary float-lef">Télécharger Liste Opérations</a>
+        <a (click)="showOperations=false" class="btn btn-danger ms-3 float-lef">Fermer</a>
+        <a class="btn btn-secondary offset-md-3">SOLDE:<span class="h5"> {{ montantActuel }}</span></a>
+        <br><br>
+        <h5 class="text-muted">Liste des opérations effectuées sur le compte N° {{ bankAccountIdPut }}</h5>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr class="text-center">
+                    <th>ID</th>
+                    <th>DateOp</th>
+                    <th>SoldOp</th>
+                    <th>TypeOp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bankOp of dataOperationsByBankAccount">
+
+                    <td>{{ bankOp.id }}</td>
+                    <td>{{ bankOp.dateOp }}</td>
+                    <td>{{ bankOp.amount }}</td>
+                    <td>{{ bankOp.type}}</td>
+                
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-6 bg-primary">
+                <h5 class="">Somme CREDIT: <span class="h3">{{ credit }}</span> </h5>
+            </div>
+             
+            <div class="col-6 bg-danger border border-dark">
+                <h5 class="">Somme DEBIT: <span class="h3">{{ debit }}</span></h5>
+            </div>
+        </div>
+     
+        <br>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br>

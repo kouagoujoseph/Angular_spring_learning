@@ -1,0 +1,38 @@
+<header>
+    <nav class="navbar navbar-expand-md navclas  fixed-top justify-content-center p-3">
+        <a class="navbar-brand link-logo" href="" >
+            <div class="d-inline-flex div_logo">
+                <img src="" alt="" class="logo-header">
+            </div>
+        </a>
+        
+              <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+       
+        <div class="collapse navbar-collapse w-25">
+            <ul class="navbar-nav d-flex justify-content-between w-75 offset-md-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">ACCUEIL</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="addEmployee" routerLinkActive="active">REALISATION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="link_gestion_employes" routerLinkActive="active">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="EmployeTache" routerLinkActive="active">A PROPOS</a>
+                </li>
+               
+            </ul>
+        </div>
+        <a routerLinkActive="active" routerLink="addTache" class="nav-item nav-link d-none d-md-block br-30 mx-md-4 text-white"
+            id="header-contact-btn">
+            CONTACTEZ-NOUS
+        </a>
+      </nav>
+</header>
+
+

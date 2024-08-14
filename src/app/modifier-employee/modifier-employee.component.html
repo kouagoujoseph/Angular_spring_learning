@@ -1,0 +1,30 @@
+<br><br>
+<div class="card mt-4 col-8 offset-md-2 mt-md-5 pt-md-3 mb-md-5">
+    <div class="card-header">
+        <h3>Modifier les données de l'employé</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="employeeForm" (ngSubmit)="updateEmployee()">
+        <div class="form-group">
+          <input type="hidden" class="form-control"   formControlName="id">
+        </div>
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input type="text" class="form-control"   formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="position">Position</label>
+          <input type="text" class="form-control" formControlName="position">
+        </div>
+        <div class="form-group">
+          <label for="salary">Salaire</label>
+          <input type="number" class="form-control"  formControlName="salary">
+        </div>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary mx-1">Modifier</button>
+        <a routerLink="/link_gestion_employes" class="btn btn-secondary mx-1">Retour</a>
+      </form>
+    </div>
+  </div>
+  <br><br>

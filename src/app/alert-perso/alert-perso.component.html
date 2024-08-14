@@ -1,0 +1,5 @@
+<div *ngIf="visible" class="custom-alert" [ngClass]="{'alert-success': type === 'success', 'alert-danger': type === 'danger'}">
+    <span>{{ message }}</span>
+    <button (click)="close()" class="close-btn"> X</button>
+  </div>
+  

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 
@@ -37,9 +37,13 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/api/operation/createOperation/${bankid}`, data,{ responseType: 'text' as 'json' });
   }
 
-  postLogin(username: String, password: String): Observable<any> {
-     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    return this.http.post<any>(`${this.apiUrl}/login/`,{ username, password },{headers,observe: 'response' });
+  postLogin(username: string, password: string): Observable<any> {
+    let params = new HttpParams().set("username", username).set("password", password);
+     const options = {
+     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+     };
+  
+    return this.http.post<any>(`${this.apiUrl}/connexion`,params,options);
   }
 
 

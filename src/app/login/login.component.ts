@@ -31,17 +31,16 @@ export class LoginComponent implements OnInit{
   }
 
   onSubmitLogin() {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    const body = `username=${this.formLogin.get("username")?.value}&password=${this.formLogin.get("password")?.value}`;
-
       if (this.formLogin.valid) {
+      
+        
 
-        this.http.post('http://127.0.0.1:8080/login', body, { headers, observe: 'response' }).subscribe({
+        this.apiService.postLogin(this.formLogin.get("username")?.value,this.formLogin.get("password")?.value).subscribe({
           next: (response)=>{
-            if (response.status === 200) {
+            
               console.log(response);
             this.route.navigate(['/dashboard']);
-            }
+            
           },
           error:(error)=>{
             console.error('Login failed', error);
